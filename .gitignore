@@ -1,0 +1,13 @@
+# ingnorar todo / ignore everithing
+qtile/wallpaper
+/*
+!.gitignore
+!.gitmodedules
+
+#Excepciones ala regla
+
+!qtile
+!ranger
+!nvim
+
+
