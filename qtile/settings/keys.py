@@ -9,7 +9,8 @@ from libqtile.command import lazy
 
 
 mod = "mod4"
-terminal = "alacritty"
+terminal = "xfce4-terminal"
+home ="/home/kirok"
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
@@ -55,6 +56,9 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
 
     # Menu
     ([mod], "d", lazy.spawn("rofi -show drun -show-icons")),
+
+    #powermenu
+    ([mod], "x", lazy.spawn(f"{home}/.config/rofi/bin/applet_powermenu")),
 
     # Window Nav
     ([mod, "shift"], "d", lazy.spawn("rofi -show ")),
