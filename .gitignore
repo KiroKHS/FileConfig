@@ -3,9 +3,9 @@ qtile/wallpaper
 /*
 !.gitignore
 !.gitmodedules
-
 #Excepciones ala regla
 
+!xfce4/terminal
 !qtile
 !ranger
 !nvim
