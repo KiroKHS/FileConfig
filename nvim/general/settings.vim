@@ -1,5 +1,5 @@
 set number relativenumber
-set colorcolumn=81
+"set colorcolumn=81
 set laststatus=0
 set smartindent
 set autoindent
