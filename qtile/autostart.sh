@@ -4,6 +4,8 @@
 cbatticon -u 5 &
 # systray volume
 volumeicon &
+# network manager
+nm-applet &
 #fondo de pantalla
 wallapers=`ls $HOME/.config/qtile/wallpaper/`
 Fondo=(`echo $wallapers`) 
