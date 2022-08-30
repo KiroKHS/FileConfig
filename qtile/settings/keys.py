@@ -3,14 +3,15 @@
 # https://github.com/antoniosarosi/dotfiles
 
 # Qtile keybindings
-
+import os
 from libqtile.config import Key
 from libqtile.command import lazy
 
 
 mod = "mod4"
-terminal = "xfce4-terminal"
-home ="/home/kirok"
+terminal = "kitty -o background_opacity=0.8"
+home = os.path.expanduser("~")
+browser = "vivaldi-stable"
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
@@ -64,7 +65,7 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod, "shift"], "d", lazy.spawn("rofi -show ")),
 
     # Browser
-    ([mod], "b", lazy.spawn("firefox")),
+    ([mod], "b", lazy.spawn(browser)),
 
     # File Explorer
     ([mod], "e", lazy.spawn(f"{terminal} -e ranger")),

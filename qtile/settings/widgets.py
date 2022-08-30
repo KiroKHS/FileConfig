@@ -1,6 +1,7 @@
+import os
 from libqtile import widget
 from .theme import colors
-
+home = os.path.expanduser("~")
 # Get the icons at https://www.nerdfonts.com/cheat-sheet (you need a Nerd Font)
 
 def base(fg='text', bg='dark'):
@@ -38,7 +39,7 @@ def workspaces():
         widget.GroupBox(
             **base(fg='light'),
             font='UbuntuMono Nerd Font',
-            fontsize=19,
+            fontsize=15,
             margin_y=3,
             margin_x=0,
             padding_y=8,
@@ -72,20 +73,20 @@ primary_widgets = [
     icon(bg="color4", text=' '), # Icon: nf-fa-download
 
     widget.CheckUpdates(
+        distro ='Arch',
         background=colors['color4'],
         colour_have_updates=colors['text'],
         colour_no_updates=colors['text'],
         no_update_string='0',
         display_format='{updates}',
-        update_interval=1800,
-        custom_command='checkupdates',
+        update_interval=60,
     ),
 
     powerline('color3', 'color4'),
 
     icon(bg="color3", text=' '),  # Icon: nf-fa-feed
 
-    widget.Net(**base(bg='color3'), interface='wlp2s0'),
+    widget.Net(**base(bg='color3')),
 
     powerline('color2', 'color3'),
 
@@ -99,9 +100,9 @@ primary_widgets = [
 
     widget.Clock(**base(bg='color1'), format='%d/%m/%Y - %H:%M '),
 
-    powerline('dark', 'color1'),
+    powerline('color3', 'color1'),
 
-    widget.Systray(background=colors['dark'], padding=5),
+    widget.Systray(background=colors['color3'], padding=5),
 ]
 
 secondary_widgets = [
@@ -109,22 +110,36 @@ secondary_widgets = [
 
     separator(),
 
-    powerline('color1', 'dark'),
+    powerline('color4', 'dark'),
+
+    widget.Image(filename=f"{home}/.config/qtile/imagen/cpu.png",**base(bg="color4")),
+    widget.CPU(format="{freq_current}GHz {load_percent}%",**base(bg='color4')),
+
+    powerline('color3', 'color4'),
+
+    widget.Image(filename=f"{home}/.config/qtile/imagen/ram.png",**base(bg="color3")),
+    widget.Memory( measure_mem='G',format="{MemUsed: .0f}{mm}/{MemTotal: .0f}{mm} " , **base(bg='color3')),
+
+    powerline('color1', 'color3' ),
 
     widget.CurrentLayoutIcon(**base(bg='color1'), scale=0.65),
 
     widget.CurrentLayout(**base(bg='color1'), padding=5),
 
     powerline('color2', 'color1'),
+    
+    widget.Image(filename=f"{home}/.config/qtile/imagen/nvidia.png",**base(bg="color2")),
+    widget.NvidiaSensors(**base(bg='color2')),
 
-    widget.Clock(**base(bg='color2'), format='%d/%m/%Y - %H:%M '),
-
-    powerline('dark', 'color2'),
+    powerline('grey', 'color2'),
+    widget.Net(**base( fg='light' ,bg='grey')),
+    
+    #powerline('light', 'grey'),
 ]
 
 widget_defaults = {
     'font': 'UbuntuMono Nerd Font Bold',
-    'fontsize': 14,
+    'fontsize': 14.0,
     'padding': 1,
 }
 extension_defaults = widget_defaults.copy()

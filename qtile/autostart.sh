@@ -1,17 +1,18 @@
 #!/bin/sh
 
-# systray battery icon
-cbatticon -u 5 &
 # systray volume
-volumeicon &
+kmix & 
+# volumeicon &
 # network manager
-nm-applet &
+# nm-applet &
 #fondo de pantalla
-wallapers=`ls $HOME/.config/qtile/wallpaper/`
-Fondo=(`echo $wallapers`) 
-feh --no-fehbg --bg-scale "$HOME/.config/qtile/wallpaper/${Fondo[RANDOM%${#Fondo[@]}]}" &
+python3 $HOME/.config/qtile/wallpaper.py fondorandom &
+#ajustes de volumen
+python3 $HOME/.config/qtile/volumen.py &
 #activar opacity
 compton -r 12 -o 0.00 -l 15 -t 15 -I 0.028 -O 0.03 -D 3 -c -f -C -F -G -b &
 # ejecutar key mouse
 setxkbmap -option keypad:pointerkeys &
+# ejecutar telegram
+telegram-desktop -startintray %u &
 
