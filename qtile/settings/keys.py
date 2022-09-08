@@ -9,9 +9,9 @@ from libqtile.command import lazy
 
 
 mod = "mod4"
-terminal = "kitty -o background_opacity=0.8"
+terminal = "kitty -o background_opacity=0.65"
 home = os.path.expanduser("~")
-browser = "vivaldi-stable"
+browser = "opera"
 
 keys = [Key(key[0], key[1], *key[2:]) for key in [
     # ------------ Window Configs ------------
@@ -25,7 +25,21 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     # Change window sizes (MonadTall)
     ([mod, "shift"], "j", lazy.layout.grow()),
     ([mod, "shift"], "l", lazy.layout.shrink()),
+    #BSP control de ventana
+    ([mod, "shift"], "k", lazy.layout.shuffle_down()),
+    ([mod, "shift"], "i", lazy.layout.shuffle_up()),
+    ([mod, "shift"], "j", lazy.layout.shuffle_left()),
+    ([mod, "shift"], "l", lazy.layout.shuffle_right()),
 
+    ([mod, "mod1"], "k", lazy.layout.flip_down()),
+    ([mod, "mod1"], "i", lazy.layout.flip_up()),
+    ([mod, "mod1"], "j", lazy.layout.flip_left()),
+    ([mod, "mod1"], "l", lazy.layout.flip_right()),
+    
+    ([mod, "control"], "k", lazy.layout.grow_down()),
+    ([mod, "control"], "i", lazy.layout.grow_up()),
+    ([mod, "control"], "j", lazy.layout.grow_left()),
+    ([mod, "control"], "l", lazy.layout.grow_right()),
     # Toggle floating
     ([mod], "space", lazy.window.toggle_floating()),
 

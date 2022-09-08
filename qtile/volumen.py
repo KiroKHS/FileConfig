@@ -5,8 +5,8 @@ import time
 volumen = {
   'ideal' : 10,           # El nivel de volumen que quieres optener
   'inicial': 20,          # El volumen con el que iniciaras estos cambios
-  'cadaCuanto': 3,        # Cada cuantos dias pasaran para el cambio
-  'fecha': '2022-08-25',  # La fecha en la que iniciaras este proceso
+  'cadaCuanto': 14,        # Cada cuantos dias pasaran para el cambio
+  'fecha': '2022-09-01',  # La fecha en la que iniciaras este proceso
   'baja': 1,              # Cuanto baja cada cuanto
 }
 
